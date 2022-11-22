@@ -24,7 +24,6 @@ function RecipeDetails({ location: { pathname } }) {
     const getPageInfo = async () => {
       setLoading(true);
       const urlData = pathname.split('/');
-      console.log(recipeData.id === urlData[2]);
       if (recipeData.id !== undefined || recipeData.id !== urlData[2]) {
         const { minRecommendationList, handleRecipe } = await getRecipeDetails(urlData);
         setRecommendationList(minRecommendationList);

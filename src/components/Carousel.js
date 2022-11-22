@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 import { Box, IconButton, Paper, Typography } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { Link, useHistory } from 'react-router-dom';
 
 function Carousel(props) {
+  const history = useHistory();
   const [carouselIndex, setCarouselIndex] = useState(0);
   const { recommendationList } = props;
 
@@ -25,6 +27,11 @@ function Carousel(props) {
     } if (carouselIndex === lowerLimit) {
       setCarouselIndex(upperLimit);
     }
+  };
+
+  const urlHelper = () => {
+    const url = history.location.pathname.split('/');
+    return (url[1] === 'meals') ? 'drinks' : 'meals';
   };
 
   const handleHidden = (aIndex) => (
@@ -52,25 +59,26 @@ function Carousel(props) {
           <ArrowBackIcon color="primary" />
         </IconButton>
         {recommendationList
-          .map(({ name, image }, i) => (
-            <Paper
-              elevation={ 3 }
-              sx={ { borderRadius: '5px' } }
-              className="mx-2 text-center"
-              hidden={ !handleHidden(i) }
-              name={ name }
-              key={ name }
-              data-testid={ `${i}-recommendation-card` }
-            >
-              <img
-                className="img-thumbnail"
-                src={ image }
-                alt={ name }
-              />
-              <p data-testid={ `${i}-recommendation-title` }>
-                {name}
-              </p>
-            </Paper>
+          .map(({ name, image, id }, i) => (
+            <Link to={ `/${urlHelper()}/${id}` } key={ name }>
+              <Paper
+                elevation={ 3 }
+                sx={ { borderRadius: '5px' } }
+                className="mx-2 text-center"
+                hidden={ !handleHidden(i) }
+                name={ name }
+                data-testid={ `${i}-recommendation-card` }
+              >
+                <img
+                  className="img-thumbnail"
+                  src={ image }
+                  alt={ name }
+                />
+                <p data-testid={ `${i}-recommendation-title` }>
+                  {name}
+                </p>
+              </Paper>
+            </Link>
           ))}
         <IconButton
           className="btn btn-primary"

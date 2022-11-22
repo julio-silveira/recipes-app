@@ -1,7 +1,7 @@
 import React from 'react';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Grid, Paper, Typography } from '@mui/material';
+import { Box, Grid, Paper, Typography } from '@mui/material';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -39,7 +39,11 @@ function About() {
       >
         Feito por:
       </Typography>
-      <Grid container spacing={ 2 } sx={ { paddingBottom: '80px' } }>
+      <Grid
+        container
+        spacing={ 2 }
+        sx={ { paddingBottom: '80px', minHeight: '80vh', alignItems: 'center' } }
+      >
         {teams.map(({ name, linkedin, github }) => (
           <Grid
             sx={ { display: 'flex', justifyContent: 'center' } }
@@ -50,27 +54,27 @@ function About() {
             key={ name }
           >
             <Paper
-              levation={ 10 }
+              elevation={ 10 }
               sx={ {
-                width: '200px',
+                width: '350',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 padding: '10px',
               } }
             >
-              <img width={ 100 } src={ `https://avatars.githubusercontent.com/${github}?size=100` } alt="logo1" />
+              <img className="about-avatar" width={ 280 } src={ `https://avatars.githubusercontent.com/${github}?size=280` } alt="logo1" />
 
               <h6>{name}</h6>
-              <div>
+              <Box>
                 <a id={ github } href={ `https://github.com/${github}` } target="blank">
-                  <GitHubIcon color="primary" />
+                  <GitHubIcon className="about-icon" fontSize="large" color="primary" />
                 </a>
 
                 <a href={ `https://www.linkedin.com/in/${linkedin}` } target="blank">
-                  <LinkedInIcon color="primary" />
+                  <LinkedInIcon fontSize="large" color="primary" />
                 </a>
-              </div>
+              </Box>
             </Paper>
           </Grid>))}
       </Grid>

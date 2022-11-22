@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import { TextField, Box, IconButton, Typography } from '@mui/material';
+import { TextField, Box, IconButton, Typography, Button } from '@mui/material';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
 import SearchBar from './SearchBar';
@@ -20,6 +20,9 @@ export default function Header({ title, searchImage }) {
   const profileClick = () => {
     history.push('/profile');
   };
+  const homeClick = () => {
+    history.push('/meals');
+  };
 
   return (
     <Box
@@ -37,8 +40,9 @@ export default function Header({ title, searchImage }) {
           padding: '20px',
         } }
       >
-        <img src={ logoHeader } alt="logo Header" />
-
+        <Button onClick={ homeClick }>
+          <img src={ logoHeader } alt="logo Header" />
+        </Button>
         <Box>
           {searchImage && (
             <IconButton color="secondary" type="button" onClick={ searchClick }>

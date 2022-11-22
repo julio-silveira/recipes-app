@@ -127,6 +127,15 @@ a {
    }
 }
 
+.about-avatar {
+  border-radius: 50%;
+}
+
+.MuiSvgIcon-fontSizeLarge:hover {
+  color: #41197F;
+  font-size: 3rem;
+}
+
 @media screen and (max-width: 1149px) {
   .card h2{
     color: #464646;

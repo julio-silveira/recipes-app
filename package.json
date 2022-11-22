@@ -5,7 +5,7 @@
   "engines": {
     "node": "16"
   },
-  "homepage": "https://julio-silveira.github.io/",
+  "homepage": "https://julio-silveira.github.io/recipes-app/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",

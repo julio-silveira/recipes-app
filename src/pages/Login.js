@@ -58,8 +58,9 @@ function Login() {
       } }
     >
       <img width={ 198 } src={ loginLogo } alt="login-logo" />
-
-      <img className="tomato-image" src={ loginImage } alt="login-logo" />
+      <Box sx={ { display: { xs: 'flex', md: 'none' } } }>
+        <img className="tomato-image" src={ loginImage } alt="login-logo" />
+      </Box>
       <Stack
         spacing={ 1 }
         component="form"

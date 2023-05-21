@@ -8,7 +8,7 @@ Para obter os dados necessários, integramos duas APIs distintas, uma dedicada a
 
 Um aspecto importante do projeto foi a adaptação do layout para dispositivos móveis, visando proporcionar uma experiência de usuário otimizada em telas menores. Dessa forma, garantimos a acessibilidade e usabilidade do aplicativo em smartphones e tablets.
 
-Você pode acessar o aplicativo [clicando aqui](https://web-recipesapp.vercel.app/).
+Você pode acessar o aplicativo ![clicando aqui](https://web-recipesapp.vercel.app/).
 
 ## Tecnologias utilizadas
 
